@@ -48,6 +48,7 @@ createApp({
     created() {
         this.tasksUncomplete = this.tasks.filter((object) => object.done === false);
         this.tasksComplete = this.tasks.filter((object) => object.done === true);
+        this.tasks = this.tasksUncomplete;
         
       },
 }).mount('#app')
