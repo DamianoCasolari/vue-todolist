@@ -45,12 +45,11 @@ createApp({
         
         }
     },
-    // computed: {
-    //     fullName: function () {
-    //         if(done)
-    //       return this.firstName + ' ' + this.lastName
-    //     }
-    //   }
+    created() {
+        this.tasksUncomplete = this.tasks.filter((object) => object.done === false);
+        this.tasksComplete = this.tasks.filter((object) => object.done === true);
+        
+      },
 }).mount('#app')
 
 
