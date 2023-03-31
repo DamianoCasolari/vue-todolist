@@ -44,13 +44,17 @@ footer {
 
 .uncomplete i {
     cursor: pointer;
-    font-size: 20px;
     transition-duration: 0.4s;
 }
 
 .uncomplete i:hover {
     transform: scale(1.3);
     color: greenyellow;
+}
+
+.complete i {
+    color: greenyellow;
+    
 }
 
 

@@ -60,7 +60,7 @@
                     </div>
                     <ul class="list-unstyled " v-if="tasksUncomplete.length > 0">
                         <li v-for="(task,index) in tasksUncomplete" class="d-flex justify-content-between m-3 fs-4">
-                            <span>{{task.text}}</span>
+                            <span class="uncomplete_text">{{task.text}}</span>
                             <div class="uncomplete" @click="completeTask(index)">
                                 <i class="fa fa-check-circle" aria-hidden="true"></i>
                             </div>
