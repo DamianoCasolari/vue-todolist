@@ -20,15 +20,15 @@ createApp({
               ],
             tasksComplete : [],
             tasksUncomplete : [],
+            endDay: new Date().setHours(24, 0, 0),
+            timeLeft: '', 
             
         }
     },
     methods: {
         addTask() {
-            // if (!this.newTask.length < 5) {
             if (this.newTask.text.length > 5) {
-                this.tasks.unshift(this.newTask)
-                this.tasksUncomplete.push(this.newTask)
+                this.tasksUncomplete.unshift(this.newTask)
                 this.newTask= {
                     text: "",
                     done: false,
@@ -39,18 +39,32 @@ createApp({
             }
         },
         completeTask(index) {
-            this.tasksComplete.push(this.tasks[index])
-            this.tasksUncomplete.splice(index, 1)
+            console.log(index);
+            this.tasksComplete.unshift(this.tasksUncomplete[index])
             this.tasks.splice(index, 1)
         
-        }
+        },
+        startCountdown() {
+            setInterval(() => {
+              const currentTime = new Date().getTime();
+              const timeDiff = this.endDay - currentTime;
+              const hoursLeft = Math.floor(timeDiff / (1000 * 60 * 60));
+              const minutesLeft = Math.floor(
+                (timeDiff % (1000 * 60 * 60)) / (1000 * 60)
+              );
+              const secondsLeft = Math.floor((timeDiff % (1000 * 60)) / 1000);
+              this.timeLeft = `${hoursLeft}h ${minutesLeft}m ${secondsLeft}s`;
+            }, 1000);
+          },
     },
     created() {
         this.tasksUncomplete = this.tasks.filter((object) => object.done === false);
         this.tasksComplete = this.tasks.filter((object) => object.done === true);
         this.tasks = this.tasksUncomplete;
-        
+        this.startCountdown();
       },
+      
+      
 }).mount('#app')
 
 

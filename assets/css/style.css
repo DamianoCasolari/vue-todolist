@@ -17,6 +17,11 @@
 
 /* different container  */
 
+.counter {
+    height: 100px;
+    text-shadow: 5px 5px 7px rgb(86, 86, 86);
+}
+
 .my_container {
     height: 100%;
 }
@@ -28,22 +33,12 @@ footer {
 
 .Task_uncomplete_container,
 .Task_complete_container {
-    height: 70%;
+    height: 80%;
     width: 80%;
     margin: 30px;
+    box-shadow: 5px 5px 7px rgb(86, 86, 86);
 
 }
-
-/* details  */
-
-
-.click_up {
-   
-   animation: scale 0.7s linear;
-
-}
-
-
 
 /* Hover effect  */
 
@@ -56,20 +51,6 @@ footer {
 .uncomplete i:hover {
     transform: scale(1.3);
     color: greenyellow;
-}
-
-
-/* ANIMATION  */
-
-@keyframes scale {
-    0% {
-        transform: scale(1)
-    } 50% {
-        transform: scale(1.1)
-    } 100% {
-        transform: scale(1)
-    }
-    
 }
 
 
@@ -99,6 +80,6 @@ footer {
 
     .my_container {
         flex-wrap: nowrap;
-        height: calc(100vh - 50px);
+        height: calc(100vh - 150px);
     }
 }

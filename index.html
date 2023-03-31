@@ -27,11 +27,12 @@
 <body>
     <div id="app">
         <div class="my_background"></div>
-     
+        <!-- create counter  -->
+     <div class="counter fw-bold mx-5 py-sm-5 fs-1 my_font text-center">You still have <span class="text-danger">{{timeLeft}}</span>  to finish your Tasks </div>
         <main class="my_container d-flex justify-content-around align-items-center flex-wrap">
 
             <!-- create tasks uncomplete container  -->
-            <div class="Task_uncomplete_container card rounded-4 p-3 justify-content-center flex-grow-1">
+            <div class="Task_uncomplete_container card rounded-5 p-3 justify-content-center flex-grow-1">
                 <!-- create input container  -->
                 <div class="input_container d-flex justify-content-center align-items-stretch m-3">
                     <div class="add_task">
@@ -71,7 +72,7 @@
             </div>
 
             <!-- create tasks complete container  -->
-            <div class="Task_complete_container card rounded-4 p-3 my_font justify-content-center flex-grow-1"
+            <div class="Task_complete_container card rounded-5 p-3 my_font justify-content-center flex-grow-1"
                 v-if="tasksComplete.length > 0 && tasksUncomplete.length > 0">
 
                 <h3 class="fw-bold text-center">Completed tasks</h3>
