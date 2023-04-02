@@ -49,7 +49,7 @@
                 </div>
 
                 <h3 class="uncomplete_title fw-bold my_font text-center position-relative"
-                    v-if="tasksUncomplete.length > 0"><b class="un text-danger display-5">Un</b>completed tasks</h3>
+                    v-if="tasks.length > 0"><b class="un text-danger display-5">Un</b>completed tasks</h3>
                 <!-- create listtasks uncomplete container  -->
                 <div class="tasks overflow-auto W-100 my_font">
                     <div class="fs-4 d-flex justify-content-between m-3" v-if="newTask.text.length > 0">
@@ -58,8 +58,8 @@
                             <i class="fa fa-check-circle" aria-hidden="true"></i>
                         </div>
                     </div>
-                    <ul class="list-unstyled " v-if="tasksUncomplete.length > 0">
-                        <li v-for="(task,index) in tasksUncomplete" class="d-flex justify-content-between m-3 fs-4">
+                    <ul class="list-unstyled " v-if="tasks.length > 0">
+                        <li v-for="(task,index) in tasks" class="d-flex justify-content-between m-3 fs-4">
                             <span class="uncomplete_text">{{task.text}}</span>
                             <div class="uncomplete" @click="completeTask(index)">
                                 <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -73,7 +73,7 @@
 
             <!-- create tasks complete container  -->
             <div class="Task_complete_container card rounded-5 p-3 my_font justify-content-center flex-grow-1"
-                v-if="tasksComplete.length > 0 && tasksUncomplete.length > 0">
+                v-if="tasksComplete.length > 0 && tasks.length > 0">
 
                 <h3 class="fw-bold text-center">Completed tasks</h3>
                 <div class="tasks overflow-auto W-100">

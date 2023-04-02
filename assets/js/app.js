@@ -19,7 +19,6 @@ createApp({
                 { text: "Scrivere una lettera", done: true },
               ],
             tasksComplete : [],
-            tasksUncomplete : [],
             endDay: new Date().setHours(24, 0, 0),
             timeLeft: '', 
             
@@ -28,7 +27,7 @@ createApp({
     methods: {
         addTask() {
             if (this.newTask.text.length > 5) {
-                this.tasksUncomplete.unshift(this.newTask)
+                this.tasks.unshift(this.newTask)
                 this.newTask= {
                     text: "",
                     done: false,
@@ -40,7 +39,7 @@ createApp({
         },
         completeTask(index) {
             console.log(index);
-            this.tasksComplete.unshift(this.tasksUncomplete[index])
+            this.tasksComplete.unshift(this.tasks[index])
             this.tasks.splice(index, 1)
         
         },
@@ -58,9 +57,9 @@ createApp({
           },
     },
     created() {
-        this.tasksUncomplete = this.tasks.filter((object) => object.done === false);
         this.tasksComplete = this.tasks.filter((object) => object.done === true);
-        this.tasks = this.tasksUncomplete;
+        this.tasks = this.tasks.filter((object) => object.done === false);
+        // this.tasks = this.tasksUncomplete;
         this.startCountdown();
       },
       
